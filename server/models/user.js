@@ -19,6 +19,14 @@ const User_schema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  avatar: {
+    type: String,
+    default: '/path/to/gallery/defaultAvatar.png'
+  },
+  role: {
+    type: String,
+    default: 'client'
   }
 });
 

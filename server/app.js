@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const dbConnector = require('./utils/dbConnector');
 
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/users');
+const userRouter = require('./routes/user');
 const fabcarRouter = require('./routes/fabcar');
 
 const app = express();
