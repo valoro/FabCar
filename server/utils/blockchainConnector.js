@@ -84,5 +84,27 @@ module.exports = {
                 return reject(err);
             })
         })
+    },
+    deleteAssetById: async (asset, assetId) => {
+        return new Promise((resolve, reject) => {
+            axios({
+                method: 'DELETE',
+                url: `${BlockchainStrings.URL}/asset/${asset}/${assetId}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': BlockchainStrings.USER_TOKEN
+                },
+                data: {
+                    networkName: BlockchainStrings.NETWORKNAME,
+                    contractName: BlockchainStrings.CONTRACTNAME
+                }
+            })
+            .then(response => {
+                return resolve(response.data);
+            })
+            .catch(err => {
+                return reject(err);
+            })
+        })
     }
 };

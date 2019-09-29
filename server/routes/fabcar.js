@@ -58,6 +58,17 @@ router.put('/:id', (req, res) => {
     })
 });
 
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    blockchainConnector.deleteAssetById('car', id)
+    .then( key => {
+        res.json(key);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+})
+
 router.post('/changeCarOwner', (req, res) => {
     let car = req.body.car;
     let newOwner = req.body.newOwner;
